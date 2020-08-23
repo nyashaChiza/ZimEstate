@@ -1,0 +1,246 @@
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+{% load static %}
+
+<head>
+   
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Zim Estate</title>
+    <meta name="description" content="">
+    <meta name="theme-color" content="#493174">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Zim_Estate_App/img/arrow.png' %}">
+    <!-- Place favicon.ico in the root directory -->
+
+
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href=" {% static 'Zim_Estate_App/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/slicknav.css' %}">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="{% static 'Zim_Estate_App/css/style.css' %}">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div class="header-top_area d-none d-lg-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-md-5 ">
+                            <div class="header_left">
+                                <p>Welcome to the Zim-Estate Service</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-md-7">
+                            <div class="header_right d-flex">
+                                    <div class="short_contact_list">
+                                            <ul>
+                                                <li><a href="mailto:nchizampeni@gmail.com"> <i class="fa fa-envelope"></i> nchizampeni@gmail.com</a></li>
+                                                <li><a href="#"> <i class="fa fa-phone"></i> +263 783 481 766</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="social_media_links">
+                                            <a href="#">
+                                                <i class="fa fa-linkedin"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                                        </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2">
+                                <div class="logo">
+                                    <a href="{% url 'Zim_Estate_App:index'%}">
+                                        <img src="{% static 'Zim_Estate_App/img/logo.png' %}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a  href="{% url 'Zim_Estate_App:index' %}">home</a></li>
+
+                                            <li><a href="{% url 'Zim_Estate_App:properties' %}">Property</a></li>
+                                           <li><a href="{% url 'Zim_Estate_App:about' %}">About</a></li>
+                                            <li><a href="{% url 'Zim_Estate_App:contact' %}">Contact</a></li>
+                                            <li><a href="{% url 'Zim_Estate_App:account' %}">My Account</a></li>
+                                        </ul>
+
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                <div class="Appointment">
+
+                                    <div class="book_btn d-none d-lg-block">
+                                        <a  href="{% url 'Zim_Estate_App:account' %}">Add Property</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+           {% block content %}
+
+           {% endblock %}
+
+
+
+<div class="contact_action_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7">
+                    <div class="action_heading">
+                        <h3>Add Your Property </h3>
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="call_add_action">
+                        <span>+263 783 481 766</span>
+                        <a href="{% url 'Zim_Estate_App:account' %}" class="boxed-btn3-line">Add Property</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="{% static 'Zim_Estate_App/img/footer_logo.png' %}" alt="">
+                                </a>
+                            </div>
+                            <p>
+                                    <a href="mailto:nchizampeni@gmail.com">nchizampeni@gmail.com</a> <br>
+                                    +263 783 481 766 <br>
+
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/ footer end  -->
+
+    <!-- link that opens popup -->
+    <!-- JS here -->
+    <script src="{% static 'Zim_Estate_App/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/popper.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/ajax-form.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/scrollIt.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/wow.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/nice-select.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/plugins.js' %}"></script>
+    <!-- <script src="js/gijgo.min.js"></script> -->
+    <script src="{% static 'Zim_Estate_App/js/slick.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/main.js' %}"></script>
+
+
+
+
+    <!--contact js-->
+    <script src="{% static 'Zim_Estate_App/js/contact.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/jquery.form.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'Zim_Estate_App/js/mail-script.js' %}"></script>
+
+
+     <script src="{% static 'Zim_Estate_App/js/main.js' %}"></script>
+    <script>
+          $('.counter').counterUp({
+            delay: 10,
+            time: 10000
+        });
+    </script>
+</body>
+
+</html>

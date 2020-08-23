@@ -1,0 +1,54 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+   <!-- bradcam_area  -->
+          <div class="bradcam_area bradcam_bg_1">
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-xl-12">
+                             <div class="bradcam_text text-center">
+                                 <h3>My Properties</h3>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!--/ bradcam_area  -->
+<div class="container md-col-11">
+<div class="section-top-border">
+    <div class="mx-auto"><h3 class="mb-30">My Properties</h3></div>
+				<div class="progress-table-wrap">
+					<div class="progress-table">
+						<div class="table-head">
+							<div class="serial">#</div>
+							<div class="country">Property</div>
+							<div class="visit">Visits</div>
+							<div class="visit">Validated</div>
+							<div class="percentage">Interest (%)</div>
+							<div class="percentage">Actions</div>
+						</div>
+						{% for property in property %}
+						<div class="table-row">
+							<div class="serial">{{ property.id }}</div>
+							<div class="country">{{ property.city }}, {{ property.suburb }}</div>
+							<div class="visit">{{ property.views }}</div>
+							<div class="visit">{% if property.is_valid %}Yes{% else %}No{% endif %}</div>
+							<div class="percentage">
+								<div class="progress">
+									<div class="progress-bar color-1" role="progressbar" style="width: {{ property.popularity }}%"
+										aria-valuenow="{{ property.popularity }}" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+							</div>
+							<div class="visit btn btn-sm "><a href=" {% url 'Zim_Estate_App:edit_property' property.id %}">Edit Prop. Details </a> &nbsp;</div>
+						</div>
+						{%  endfor %}
+                    </div>
+
+			</div>
+	   <br >
+          <a href="{% url 'Zim_Estate_App:my_account' %}" class="genric-btn primary-border circle arrow"><span class="lead">&#8592; Back</span></a>
+
+</div>
+</div>
+
+{% endblock %}

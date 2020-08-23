@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+          <!-- bradcam_area  -->
+          <div class="bradcam_area bradcam_bg_1">
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-xl-12">
+                             <div class="bradcam_text text-center">
+                                 <h3>Your Account</h3>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!--/ bradcam_area  -->
+
+<div class="col-md-4 mx-auto">
+     <br>  <br>
+    {% if message  %}
+     <div class="mx-auto text-center  md-col-6 container alert-success"> Account Successfully Created</div>
+    {% endif %}
+    <br>
+                 <form class="form-signin" method = "post" action = "{% url 'Zim_Estate_App:signin'  %}">
+                     {% if  form.non_field_errors %}
+                     <div class="mx-auto text-center  md-col-6 container alert-danger"> {{ form.non_field_errors }}</div>
+                {% endif %}<br>  <br>
+                     {% csrf_token %}
+      <div class="form-label-group">
+          <br>
+       <p class = "h1 text-muted text-center mx-auto">Please Sign In</p>
+      </div>
+      <br />
+      <div class="form-label-group">
+          {{ form.email }}
+      </div>
+<br>
+      <div class="form-label-group">
+        {{ form.password }}
+
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+           <a style=" text-decoration:none;" class = "text-muted" href = "{% url 'Zim_Estate_App:signup'  %}">Create New Account?</a>
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+<br> <br>
+      </form>
+    </div>
+{% endblock %}

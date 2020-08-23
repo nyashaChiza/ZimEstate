@@ -1,0 +1,194 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+   <!-- bradcam_area  -->
+          <div class="bradcam_area bradcam_bg_1">
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-xl-12">
+                             <div class="bradcam_text text-center">
+                                 <h3>Upload Property</h3>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!--/ bradcam_area  -->
+
+<br > <br>
+<div class="col-md-8 mx-auto">
+  <div class="form-label-group">
+    <p class = "h1 text-muted text-center mx-auto">Enter Property Details</p>
+   </div>
+    <br>
+<form class="needs-validation" enctype="multipart/form-data" method = "POST" action = "{% url 'Zim_Estate_App:upload_process' %}">
+      {{ form.non_field_errors }}
+      {% csrf_token %}
+      <div class="col-md-10 mx-auto">
+      <div class="row ">
+
+      <div class="col-md-4 mb-3">
+
+     {{ form.city }}
+        <div class="invalid-feedback">
+          Valid first name is required.
+        </div>
+      </div>
+ <div class="col-md-4 mb-3">
+
+     {{ form.suburb }}
+        <div class="invalid-feedback">
+          Valid first name is required.
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        {{ form.size }}
+        <div class="invalid-feedback">
+          Valid last name is required.
+        </div>
+      </div>
+    </div>
+
+          <div class="row ">
+
+      <div class="col-md-6 mb-3">
+
+     {{ form.bedroom_num }}
+        <div class="invalid-feedback">
+          Valid first name is required.
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        {{ form.bathroom_num }}
+        <div class="invalid-feedback">
+          Valid last name is required.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">#</span>
+        </div>
+        {{ form.price }} {{ form.seller }}
+        <div class="invalid-feedback" style="width: 100%;">
+          Your Phone Number is required.
+        </div>
+      </div>
+    </div>
+
+
+                   <div class="mb-3">
+                       {% if form.description.errors  %}
+    <ol>
+    {% for error in form.description.errors %}
+        <li class="text-danger"><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+    {{ form.description }}
+      <div class="invalid-feedback">
+        Please enter your password.
+      </div>
+    </div>
+
+
+      <div class="row ">
+
+           <div class="col-md-6 mb-3">
+
+    {{ form.property_type }}
+      <div class="invalid-feedback">
+        Please enter your password.
+      </div>
+    </div>
+
+                   <div class="col-md-6 mb-3">
+    {{ form.contract_type }}
+      <div class="invalid-feedback">
+        Please enter your password.
+      </div>
+    </div>
+      </div>
+
+
+    <div class="mb-3">
+{% if form.image1.errors  %}
+    <ol>
+    {% for error in form.image1.errors %}
+        <li class="text-danger"><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">1st Image</span>
+        </div>
+        {{ form.image1 }}
+        <div class="invalid-feedback" style="width: 100%;">
+          Your Phone Number is required.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+{% if form.image2.errors  %}
+    <ol>
+    {% for error in form.image2.errors %}
+        <li class="text-danger"><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">2nd Image</span>
+        </div>
+        {{ form.image2 }}
+        <div class="invalid-feedback" style="width: 100%;">
+          Your Phone Number is required.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+{% if form.image3.errors  %}
+    <ol>
+    {% for error in form.image3.errors %}
+        <li class="text-danger"><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">3rd Image</span>
+        </div>
+        {{ form.image3 }}
+        <div class="invalid-feedback" style="width: 100%;">
+          Your Phone Number is required.
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <button class="btn btn-primary btn-lg btn-block" type="submit">Upload Property</button>
+          <br >
+          <a href="{% url 'Zim_Estate_App:my_account' %}" class="genric-btn primary-border circle arrow"><span class="lead">&#8592; Back</span></a>
+      </div>
+</form>
+    </div>
+
+</div>
+
+<br> <br>
+
+
+{% endblock%}

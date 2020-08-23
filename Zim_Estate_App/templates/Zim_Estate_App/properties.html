@@ -1,0 +1,105 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+<div class="bradcam_area bradcam_bg_1">
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-xl-12">
+                             <div class="bradcam_text text-center">
+                                 <h3>Our Property Catalogue</h3>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+
+<div class="popular_property">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title mb-40 text-center">
+                        <h3>Popular Properties</h3>
+                    </div>
+                </div>
+            </div>
+
+<div class = "row">
+    {{ location }}
+
+{% for item in properties %}
+
+        <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_property">
+                        <div class="property_thumb">
+                            <div class="property_tag red">
+                                    {{ item.contract_type }}
+                            </div>
+                            <img width="330" height="260"  src="{{ item.image1.url }}" alt="">
+                        </div>
+                        <div class="property_content">
+                            <div class="main_pro">
+                                    <h3><a href="{% url 'Zim_Estate_App:property_details' item.id %}">{{ item.description|truncatewords:10 }}</a></h3>
+                                    <div class="mark_pro">
+                                              <img src="{% static 'Zim_Estate_App/img/svg_icon/location.svg' %}" alt="">
+                                        <span>{{ item.city }},{{ item.suburb }}</span>
+                                    </div>
+                                    <span class="amount">${{ item.price }}</span>
+                            </div>
+                        </div>
+                        <div class="footer_pro">
+                                <ul>
+                                    <li>
+                                        <div class="single_info_doc">
+                                             <img src="{% static 'Zim_Estate_App/img/svg_icon/square.svg' %}" alt="">
+                                            <span>{{ item.size }} m<sup>2</sup></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single_info_doc">
+                                            <img src="{% static 'Zim_Estate_App/img/svg_icon/bed.svg' %}" alt="">
+                                            <span>{{ item.bedroom_num }} Bed</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single_info_doc">
+                                             <img src="{% static 'Zim_Estate_App/img/svg_icon/bath.svg' %}" alt="">
+                                            <span>{{ item.bathroom_num }} Bath</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+
+    {% endfor %}
+
+
+
+
+         </div>
+        </div>
+     </div>
+
+</div>
+
+{% if properties.has_other_pages %}
+ <div class="row">
+                <div class="col-xl-12">
+                    <div class="more_property_btn text-center mx-auto">
+    {% if properties.has_previous %}
+                        <a href="?page={{ properties.previous_page_number }}" class="genric-btn primary-border radius">&laquo; Prev </a>
+                        {% else %}
+                        <a href="#" class=" disabled "></a>
+            {% endif %}
+                        {% if properties.has_next %}
+                        <a href="?page={{ properties.next_page_number }}" class="genric-btn primary-border radius">Next &raquo; </a>
+                        {%  endif %}
+                    </div>
+                </div>
+            </div>
+
+
+{% endif %}
+<br>
+{% endblock %}

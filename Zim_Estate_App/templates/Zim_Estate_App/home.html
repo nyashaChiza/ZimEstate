@@ -1,0 +1,152 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+    <div class="slider_area">
+
+            <div class="single_slider  d-flex align-items-center slider_bg_1">
+                <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-10 offset-xl-1">
+
+                                <div class="slider_text text-center justify-content-center">
+                                    <h3>Find your best Property</h3>
+                                    <p>Let Us Guide You Home.</p>
+                                </div>
+
+                                <div class="property_form">
+                                    <form action="{% url 'Zim_Estate_App:search'  %}" method="POST">
+                                         {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <div class="form_wrap d-flex">
+                                                        <div class="single-field max_width ">
+                                                                <label >Location</label>
+                                                            <select class="wide form-select"  onfocus='this.size=8' onblur='this.size=1;' onchange='this.size=1; this.blur();' name="location" >
+                                                                        {% for item in result %}<option value="{{ item }}">{{ item }}</option>{% endfor %}
+                                                                </select>
+                                                            </div>
+
+                                                        <div class="single-field max_width ">
+                                                                <label >Property type</label>
+                                                                <select class="wide" name="property_type">
+                                                                        <option value="Apartment">Apartment</option>
+                                                                        <option value="House">House</option>
+                                                                        <option value="Cabin">Cabin</option>
+                                                                        <option value="Stand">Stand</option>
+                                                                </select>
+                                                            </div>
+
+                                                        <div class="single-field min_width ">
+                                                                <label >Bed Room</label>
+                                                                <select class="wide" name="bedroom_num" >
+                                                                    <option value="0">00</option>
+                                                                    <option value="1">01</option>
+                                                                        <option value="2">02</option>
+                                                                        <option value="3">03</option>
+                                                                        <option value="4">04</option>
+                                                                        <option value="5">05</option>
+
+                                                                </select>
+                                                            </div>
+                                                        <div class="single-field min_width ">
+                                                                <label >Bath Room</label>
+                                                                <select class="wide" name="bathroom_num" >
+                                                                    <option value="0">00</option>
+                                                                    <option value="1">01</option>
+                                                                        <option value="2">02</option>
+                                                                        <option value="3">03</option>
+                                                                        <option value="4">04</option>
+
+                                                                </select>
+                                                            </div>
+                                                     <div class="single-field min_width ">
+                                                                <label ></label>
+                                                                    <input style= "margin-top: 21px;" class="search_button btn button btn-danger btn-lg" type="submit" value="Search" />
+
+                                                            </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+<div class="popular_property">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title mb-40 text-center">
+                        <h3>Popular Properties</h3>
+                    </div>
+                </div>
+            </div>
+
+<div class = "row">
+{% for item in properties %}
+        <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_property">
+                        <div class="property_thumb">
+                            <div class="property_tag red">
+                                    {{ item.contract_type }}
+                            </div>
+                            <img width="330" height="260" src="{{ item.image1.url }}" alt="">
+                        </div>
+                        <div class="property_content">
+                            <div class="main_pro">
+                                    <h3><a   href="{% url 'Zim_Estate_App:property_details' item.id %}">{{ item.description|truncatewords:10 }}</a></h3>
+                                    <div class="mark_pro">
+                                              <img  src="{% static 'Zim_Estate_App/img/svg_icon/location.svg' %}" alt="">
+                                                                         <span>{{ item.city }},{{ item.suburb }}</span>
+                                    </div>
+                                    <span class="amount">${{ item.price }}</span>
+                            </div>
+                        </div>
+                        <div class="footer_pro">
+                                <ul>
+                                    <li>
+                                        <div class="single_info_doc">
+                                             <img src="{% static 'Zim_Estate_App/img/svg_icon/square.svg' %}" alt="">
+                                            <span>{{ item.size }} m<sup>2</sup></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single_info_doc">
+                                            <img src="{% static 'Zim_Estate_App/img/svg_icon/bed.svg' %}" alt="">
+                                            <span>{{ item.bedroom_num }} bed</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single_info_doc">
+                                             <img src="{% static 'Zim_Estate_App/img/svg_icon/bath.svg' %}" alt="">
+                                            <span>{{ item.bathroom_num }} bath</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+
+    {% endfor %}
+         </div>
+        </div>
+     </div>
+
+
+<div class="row">
+                <div class="col-xl-12">
+                    <div class="more_property_btn text-center">
+                        <a href="{% url 'Zim_Estate_App:properties' %}" class="boxed-btn3-line">More Properties</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+<br> <br>
+{% endblock %}

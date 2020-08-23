@@ -1,0 +1,1 @@
+web: gunicorn Zim_Estate.wsgi --log-file -

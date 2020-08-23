@@ -1,0 +1,111 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+   <!-- bradcam_area  -->
+          <div class="bradcam_area bradcam_bg_1">
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-xl-12">
+                             <div class="bradcam_text text-center">
+                                 <h3>Manage Your Account</h3>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!--/ bradcam_area  -->
+<br>
+<div class="mx-auto  container">
+    {% if seller %}
+
+     <div class="mx-auto text-center  col-md-3 container alert-success rounded" > welcome, {{ seller }} </div>
+    {% endif %}
+</div>
+<br>
+<div class="mx-auto container">
+    {% if message %}
+     <div class="mx-auto text-center  col-md-5 container alert-success rounded" >  {{ message }} </div>
+    {% endif %}
+</div>
+
+ <div class="album py-5 mx-auto ">
+        <div class="container bg-white ">
+            <div class="row " style=" padding-left: 15px; padding-right: 15px;">
+
+        <div class="col-md-3 bg-dark rounded">
+            <a href="{% url 'Zim_Estate_App:upload_property' %}">
+              <div class="card mb-4 bg-dark box-shadow">
+                <div class="card-body bg-dark">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <h1 class="text-white lead">Upload Content</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            </div>
+    &nbsp;     &nbsp;
+
+
+
+                 &nbsp;     &nbsp;
+
+                   <div class="col-md-3 bg-dark rounded">
+              <a href="{% url 'Zim_Estate_App:my_properties' %}">
+                       <div class="card mb-4 bg-dark box-shadow">
+                <div class="card-body bg-dark">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <h1 class="text-white lead">View Properties</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                  </a>
+            </div>
+
+            </div>
+<br>
+                <div class="row " style=" padding-left: 15px; padding-right: 15px;">
+
+        <div class="col-md-3 bg-dark rounded">
+             <a href="{% url 'Zim_Estate_App:property_enquiries' %}">
+              <div class="card mb-4 bg-dark box-shadow">
+                <div class="card-body bg-dark">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <h1 class="text-white lead">View Enquiries</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                 </a>
+            </div>
+    &nbsp;     &nbsp;
+
+
+
+                 &nbsp;     &nbsp;
+
+                   <div class="col-md-3 bg-dark rounded">
+                       <a href="{% url 'Zim_Estate_App:signout' %}">
+                           <div class="card mb-4 bg-dark box-shadow">
+                <div class="card-body bg-dark">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <h1 class="text-white lead"> Log Out</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                           </a>
+            </div>
+
+            </div>
+
+        </div>
+ </div>
+
+
+{% endblock %}
